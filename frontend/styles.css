@@ -1,0 +1,78 @@
+:root {
+  --card-bg: #ffffff;
+  --text: #0f172a;
+  --muted: #6b7280;
+  --mu-blue: #1e3a8a;
+  --mu-blue-dark: #14265c;
+  --ok: #059669;
+  --bad: #dc2626;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  color: var(--text);
+}
+.bg {
+  position: fixed; inset: 0;
+  background: url("./assets/bg.jpg") center/cover no-repeat fixed;
+  filter: brightness(0.95);
+}
+.center {
+  position: relative; z-index: 1;
+  min-height: 100vh;
+  display: grid; place-items: center;
+  padding: 24px;
+}
+.card {
+  width: 95%; max-width: 520px;
+  background: var(--card-bg);
+  border-radius: 6px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  overflow: hidden;
+}
+.card-head {
+  padding: 24px 28px 8px;
+}
+.brand {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 10px;
+}
+.brand-mark {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--mu-blue); color: #fff; display: grid; place-items: center; font-weight: 700;
+}
+.brand-title { font-weight: 700; }
+.brand-sub { color: var(--muted); font-size: 12px; margin-top: 2px; }
+.form-title { margin: 8px 0 4px; }
+.form-sub { margin: 0; color: var(--muted); font-size: 14px; }
+.form { display: none; padding: 8px 28px 16px; }
+.form.active { display: block; }
+label { display: block; margin: 14px 0 6px; color: var(--muted); font-size: 14px; }
+input {
+  width: 100%; padding: 10px 12px; border-radius: 4px;
+  border: 1px solid #e5e7eb; background: #fff; color: var(--text);
+}
+.btn.primary {
+  margin-top: 16px; width: 100%; padding: 12px 14px;
+  border-radius: 4px; border: 0; background: var(--mu-blue); color: #fff; font-weight: 700;
+  cursor: pointer;
+}
+.btn.primary:hover { background: var(--mu-blue-dark); }
+.result { margin-top: 10px; min-height: 20px; font-size: 14px; }
+.result.ok { color: var(--ok); }
+.result.bad { color: var(--bad); }
+.hint { color: var(--muted); margin-top: 8px; font-size: 12px; }
+.alt-link { margin-top: 12px; }
+.alt-link a { color: var(--mu-blue); text-decoration: none; }
+.alt-link a:hover { text-decoration: underline; }
+.card-foot {
+  border-top: 1px solid #e5e7eb;
+  background: #f9fafb;
+  padding: 10px 16px;
+  display: flex; justify-content: flex-end; align-items: center; gap: 8px;
+  font-size: 12px; color: var(--muted);
+}
+.foot-link { color: var(--mu-blue); text-decoration: none; }
+.foot-link:hover { text-decoration: underline; }
+.dot { opacity: 0.5; }

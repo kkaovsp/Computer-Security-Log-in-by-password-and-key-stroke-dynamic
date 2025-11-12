@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login Success</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <style>
+    .success-box {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #22c55e;
+      color: white;
+      padding: 14px 22px;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      font-size: 16px;
+      animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, 20px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+  </style>
+</head>
+<body>
+  <main class="center">
+    <section class="card" style="text-align:center;">
+      <h2>🎉 Login Successful!</h2>
+      <p>Welcome back to the system.</p>
+    </section>
+  </main>
+
+  <div id="percentBox" class="success-box"></div>
+
+  <script>
+    // ดึงเปอร์เซ็นต์จาก query string เช่น success.html?match=92.3
+    const params = new URLSearchParams(window.location.search);
+    const match = params.get("match");
+    const box = document.getElementById("percentBox");
+    if (match) {
+      box.textContent = `✅ Typing style matched ${match}%`;
+    } else {
+      box.textContent = `✅ Login successful`;
+    }
+  </script>
+</body>
+</html>

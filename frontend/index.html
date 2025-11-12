@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahidol University Login System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="bg"></div>
+  <main class="center">
+    <section class="card" id="auth-card">
+      <header class="card-head">
+        <div class="brand">
+          <div class="brand-mark"><img src="./assets/Mahidol_U Logo.png" alt="MU Logo" width="40" height="40"></div>
+          <div class="brand-text">
+            <div class="brand-title">Mahidol University</div>
+            <div class="brand-sub">Login System</div>
+          </div>
+        </div>
+        <h2 class="form-title" id="form-title">Sign in</h2>
+        <p class="form-sub">with your Mahidol University Accounts.</p>
+      </header>
+
+      <!-- Login form -->
+      <form id="login-form" class="form active" autocomplete="off">
+        <label>Username</label>
+        <input id="login-username" type="text" required />
+
+        <label>Password</label>
+        <input id="login-password" type="password" required />
+
+        <button type="submit" class="btn primary">Sign in</button>
+        <div id="login-result" class="result"></div>
+
+        <div class="alt-link">
+          <a href="#" id="go-register">Don’t have an account? Register here</a>
+        </div>
+      </form>
+
+      <!-- Register form -->
+      <form id="register-form" class="form" autocomplete="off">
+        <label>Username</label>
+        <input id="reg-username" type="text" required />
+
+        <label>Create Password (type it 3 times)</label>
+        <input id="reg-password-1" type="password" placeholder="Password (attempt 1)" required />
+        <input id="reg-password-2" type="password" placeholder="Password (attempt 2)" required />
+        <input id="reg-password-3" type="password" placeholder="Password (attempt 3)" required />
+
+        <button type="submit" class="btn primary">Register</button>
+        <div class="hint">This demo records timing only, not your actual keystrokes.</div>
+        <div id="reg-result" class="result"></div>
+
+        <div class="alt-link">
+          <a href="#" id="go-login">Already have an account? Back to Sign in</a>
+        </div>
+      </form>
+
+      <footer class="card-foot">
+        <a class="foot-link" href="#">Change password</a>
+        <span class="dot">•</span>
+        <a class="foot-link" href="#">Help &amp; Support</a>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    // Simple toggle between login and register
+    const loginFormToggle = document.getElementById('login-form');
+    const registerFormToggle = document.getElementById('register-form');
+    const goReg = document.getElementById('go-register');
+    const goLog = document.getElementById('go-login');
+    const title = document.getElementById('form-title');
+
+    goReg.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginFormToggle.classList.remove('active');
+    registerFormToggle.classList.add('active');
+    title.textContent = 'Register';
+  });
+
+  goLog.addEventListener('click', (e) => {
+    e.preventDefault();
+    registerFormToggle.classList.remove('active');
+    loginFormToggle.classList.add('active');
+    title.textContent = 'Sign in';
+  });
+  </script>
+  <script src="./app.js"></script>
+</body>
+</html>
